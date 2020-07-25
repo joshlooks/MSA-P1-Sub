@@ -1,0 +1,1024 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={MSA Phase 1 Submission},
+  pdfauthor={Josh Looker},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{MSA Phase 1 Submission}
+\author{Josh Looker}
+\date{25 July 2020}
+
+\begin{document}
+\maketitle
+
+\#Executive Summary Using a dataset provided by NZMSA as well as further
+data from the 2018 Census (from StatsNZ) and the University of Otago's
+2018 Deprivation Index. The NZSMA dataset contains location and building
+data for each (house) observation as well as demographics for the
+surrounding location. It was desired to use these attributes to predict
+the CV of each house.
+
+The analysis below is based on the 1050 house data points recorded, each
+with a corresponding 17 variables. The response variable is the CV of
+each house, with the remaining 16 variables being explanatory.
+
+Following initial data analysis, different multi-linear regression
+models were fitted to the dataset, with the 2 best models identified
+based on training accuracy and their simplicity.
+
+\#Data Manipulation Loading required packages in R for future analysis
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching packages ------------------------------------------------------------------------------------------------------------------ tidyverse 1.2.1 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.2.1     v purrr   0.3.2
+## v tibble  2.1.3     v dplyr   0.8.3
+## v tidyr   0.8.3     v stringr 1.3.1
+## v readr   1.3.1     v forcats 0.4.0
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tidyr' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'readr' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'purrr' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'forcats' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts --------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'reticulate' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'reshape2' was built under R version 3.5.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'reshape2'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:tidyr':
+## 
+##     smiths
+\end{verbatim}
+
+Python setup for future dataframe manipulation and API usage
+
+\begin{verbatim}
+##    Bedrooms  Bathrooms                                    Address Land area  \
+## 0         5        3.0  106 Lawrence Crescent Hill Park, Auckland       714   
+## 1         5        3.0             8 Corsica Way Karaka, Auckland       564   
+## 2         6        4.0     243 Harbourside Drive Karaka, Auckland       626   
+## 3         2        1.0  2/30 Hardington Street Onehunga, Auckland        65   
+## 4         3        1.0     59 Israel Avenue Clover Park, Auckland       601   
+## 
+##         CV   Latitude   Longitude      SA1  0-19 years  20-29 years  \
+## 0   960000 -37.012920  174.904069  7009770          48           27   
+## 1  1250000 -37.063672  174.922912  7009991          42           18   
+## 2  1250000 -37.063580  174.924044  7009991          42           18   
+## 3   740000 -36.912996  174.787425  7007871          42            6   
+## 4   630000 -36.979037  174.892612  7008902          93           27   
+## 
+##    30-39 years  40-49 years  50-59 years  60+ years      Suburbs  
+## 0           24           21           24         21     Manurewa  
+## 1           12           21           15         30       Karaka  
+## 2           12           21           15         30       Karaka  
+## 3           21           21           12         15     Onehunga  
+## 4           33           30           21         33  Clover Park
+\end{verbatim}
+
+Using lambda and apply function/method to add in 2018 Census data to the
+dataframe
+
+Appending deprivation index and census data to a new dataframe in R and
+writing to a csv
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   Bedrooms = col_double(),
+##   Bathrooms = col_double(),
+##   Address = col_character(),
+##   `Land area` = col_character(),
+##   CV = col_double(),
+##   Latitude = col_double(),
+##   Longitude = col_double(),
+##   SA1 = col_double(),
+##   `0-19 years` = col_double(),
+##   `20-29 years` = col_double(),
+##   `30-39 years` = col_double(),
+##   `40-49 years` = col_double(),
+##   `50-59 years` = col_double(),
+##   `60+ years` = col_double(),
+##   Suburbs = col_character()
+## )
+\end{verbatim}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   SA12018_code = col_double(),
+##   NZDep2018 = col_double(),
+##   NZDep2018_Score = col_double(),
+##   URPopnSA1_2018 = col_double(),
+##   SA22018_code = col_double(),
+##   SA22018_name = col_character()
+## )
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 1,051 x 17
+##    Bedrooms Bathrooms Address `Land area`     CV Latitude Longitude    SA1
+##       <dbl>     <dbl> <chr>         <dbl>  <dbl>    <dbl>     <dbl>  <dbl>
+##  1        5         3 106 La~         714 9.60e5    -37.0      175. 7.01e6
+##  2        5         3 8 Cors~         564 1.25e6    -37.1      175. 7.01e6
+##  3        6         4 243 Ha~         626 1.25e6    -37.1      175. 7.01e6
+##  4        2         1 2/30 H~          65 7.40e5    -36.9      175. 7.01e6
+##  5        3         1 59 Isr~         601 6.30e5    -37.0      175. 7.01e6
+##  6        3         1 14 Tai~         100 1.05e6    -36.9      175. 7.01e6
+##  7        3         1 54 Kel~         531 2.52e6    -36.8      175. 7.00e6
+##  8        3         2 39 Raw~        1024 1.40e6    -36.9      175. 7.01e6
+##  9        3         2 17b Ta~          80 4.75e5    -37.0      175. 7.01e6
+## 10        4         2 39a Ke~         204 6.60e5    -36.8      175. 7.00e6
+## # ... with 1,041 more rows, and 9 more variables: `0-19 years` <dbl>, `20-29
+## #   years` <dbl>, `30-39 years` <dbl>, `40-49 years` <dbl>, `50-59
+## #   years` <dbl>, `60+ years` <dbl>, Suburbs <chr>, `C18 Pop` <dbl>,
+## #   NZDep2018 <dbl>
+\end{verbatim}
+
+Final data manipulation for analysis and modeling
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df}\OperatorTok{$}\NormalTok{SA1 =}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(df}\OperatorTok{$}\NormalTok{SA1)}
+\NormalTok{df}\OperatorTok{$}\NormalTok{Suburbs =}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(df}\OperatorTok{$}\NormalTok{Suburbs)}
+\NormalTok{cols <-}\StringTok{ }\KeywordTok{colnames}\NormalTok{(df)}
+\NormalTok{cols =}\StringTok{ }\NormalTok{cols[cols}\OperatorTok{!=}\StringTok{'CV'}\NormalTok{]}
+\NormalTok{cols =}\StringTok{ }\KeywordTok{append}\NormalTok{(cols,}\StringTok{'CV'}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{df =}\StringTok{ }\NormalTok{df[,cols]}
+\NormalTok{df_model =}\StringTok{ }\KeywordTok{subset}\NormalTok{(df, }\DataTypeTok{select =} \OperatorTok{-}\KeywordTok{c}\NormalTok{(Address))}
+
+\NormalTok{df_model[}\KeywordTok{rowSums}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(df_model)) }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 16
+##       CV Bedrooms Bathrooms `Land area` Latitude Longitude SA1   `0-19 years`
+##    <dbl>    <dbl>     <dbl>       <dbl>    <dbl>     <dbl> <fct>        <dbl>
+## 1 1.25e6        4        NA         214    -36.8      175. 7002~           60
+## 2 1.10e6        4        NA         245    -36.8      175. 7002~           60
+## 3 7.40e5        1         1        2141    -36.2      175. 7001~           27
+## # ... with 8 more variables: `20-29 years` <dbl>, `30-39 years` <dbl>, `40-49
+## #   years` <dbl>, `50-59 years` <dbl>, `60+ years` <dbl>, Suburbs <fct>, `C18
+## #   Pop` <dbl>, NZDep2018 <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df_model <-}\StringTok{ }\KeywordTok{na.omit}\NormalTok{(df_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\#Initial Data Analysis
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(df_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        CV              Bedrooms       Bathrooms       Land area      
+##  Min.   :  270000   Min.   : 1.00   Min.   :1.000   Min.   :   40.0  
+##  1st Qu.:  780000   1st Qu.: 3.00   1st Qu.:1.000   1st Qu.:  323.0  
+##  Median : 1080000   Median : 4.00   Median :2.000   Median :  571.5  
+##  Mean   : 1388544   Mean   : 3.78   Mean   :2.074   Mean   :  857.0  
+##  3rd Qu.: 1600000   3rd Qu.: 4.00   3rd Qu.:3.000   3rd Qu.:  825.0  
+##  Max.   :18000000   Max.   :17.00   Max.   :8.000   Max.   :22240.0  
+##                                                                      
+##     Latitude        Longitude          SA1         0-19 years    
+##  Min.   :-37.27   Min.   :174.3   7001409:   8   Min.   :  0.00  
+##  1st Qu.:-36.95   1st Qu.:174.7   7009314:   5   1st Qu.: 33.00  
+##  Median :-36.89   Median :174.8   7004358:   4   Median : 45.00  
+##  Mean   :-36.89   Mean   :174.8   7005632:   4   Mean   : 47.54  
+##  3rd Qu.:-36.86   3rd Qu.:174.9   7001422:   3   3rd Qu.: 57.00  
+##  Max.   :-36.18   Max.   :175.5   7003826:   3   Max.   :201.00  
+##                                   (Other):1021                   
+##   20-29 years      30-39 years   40-49 years      50-59 years  
+##  Min.   :  0.00   Min.   :  0   Min.   :  0.00   Min.   : 0.0  
+##  1st Qu.: 15.00   1st Qu.: 15   1st Qu.: 18.00   1st Qu.:15.0  
+##  Median : 24.00   Median : 24   Median : 24.00   Median :21.0  
+##  Mean   : 28.92   Mean   : 27   Mean   : 24.13   Mean   :22.6  
+##  3rd Qu.: 36.00   3rd Qu.: 33   3rd Qu.: 30.00   3rd Qu.:27.0  
+##  Max.   :270.00   Max.   :177   Max.   :114.00   Max.   :90.0  
+##                                                                
+##    60+ years               Suburbs       C18 Pop        NZDep2018     
+##  Min.   :  0.00   Remuera      : 61   Min.   :  3.0   Min.   : 1.000  
+##  1st Qu.: 18.00   Manurewa     : 38   1st Qu.:138.0   1st Qu.: 2.000  
+##  Median : 27.00   Papatoetoe   : 29   Median :174.0   Median : 5.000  
+##  Mean   : 29.35   St Heliers   : 29   Mean   :179.8   Mean   : 5.066  
+##  3rd Qu.: 36.00   Mount Eden   : 26   3rd Qu.:207.8   3rd Qu.: 8.000  
+##  Max.   :483.00   Mount Roskill: 26   Max.   :789.0   Max.   :10.000  
+##                   (Other)      :839
+\end{verbatim}
+
+Looking at the data, we can see that the average number of bedrooms is
+3.78, with a large upper tail of upto 17 bedrooms. For bathrooms, the
+expected number is 2.074 with a smaller upper tail of upto 8. Most land
+area sizes range between 323-825m2, with a small minimum of 40m2 and
+what is likely to be a large outlier of 22240m2 as the maximum. Latitude
+and longitude ranges are small, due to the relatively small size of
+Auckland. The average number in each population group (for each
+statistical area) is 47.54, 28.92, 27, 24.13, 22.6 and 29.35
+respectively, with the 60+ year group having the largest range with a
+maximum of 483 (this data point is likely to be a rest home or similar
+and could be considered an outlier). Most statistical areas will have be
+between 138 to 207.8 people (according to the 2018 census) in them,
+though there is an area with 789 people which may indicate an apartment
+building, retirement village or something similar (and maybe an
+outlier).
+
+\#Correlation and Pattern Analysis
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pairs20x}\NormalTok{(df_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{submission_files/figure-latex/unnamed-chunk-6-1.pdf}
+Looking at the CV histogram, it seems clear that the data should be
+logged as it has an obvious right skew (also mirrored in the scatter
+plots between age ranges and CV, and land area and CV). This may also
+account for the low correlation values between CV and the other
+variables. It is worth noting that the deprivation index and number of
+bathrooms are the most highly correlated to the CV value. Between the
+other variables, the C18 population is highly correlated with each of
+the age group population data (this is logical as higher population
+demographics means a higher total population) and the number of bedrooms
+and bathrooms is also highly correlated (likely because more bedrooms
+means more residents which would require more bathrooms).
+
+\#Linear Regression Model
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = CV ~ ., data = df_model)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -3490614        0        0        0  3490614 
+## 
+## Coefficients: (188 not defined because of singularities)
+##                                              Estimate Std. Error t value
+## (Intercept)                                 5.029e+08  7.236e+09   0.069
+## Bedrooms                                   -3.698e+04  1.159e+05  -0.319
+## Bathrooms                                   2.952e+05  1.275e+05   2.316
+## `Land area`                                 5.259e+02  1.555e+02   3.381
+## Latitude                                   -1.343e+08  4.776e+07  -2.812
+## Longitude                                  -3.059e+07  3.932e+07  -0.778
+## SA17001131                                 -7.701e+06  5.178e+06  -1.487
+## SA17001135                                 -1.499e+07  8.464e+06  -1.771
+## SA17001139                                 -3.698e+07  3.192e+07  -1.159
+## SA17001158                                 -3.074e+07  2.238e+07  -1.373
+##                                            Pr(>|t|)    
+## (Intercept)                                0.944719    
+## Bedrooms                                   0.750142    
+## Bathrooms                                  0.022359 *  
+## `Land area`                                0.000989 ***
+## Latitude                                   0.005791 ** 
+## Longitude                                  0.438101    
+## SA17001131                                 0.139705    
+## SA17001135                                 0.079184 .  
+## SA17001139                                 0.248951    
+## SA17001158                                 0.172311    
+##  [ reached getOption("max.print") -- omitted 1112 rows ]
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 775200 on 114 degrees of freedom
+## Multiple R-squared:  0.9534, Adjusted R-squared:  0.5716 
+## F-statistic: 2.497 on 933 and 114 DF,  p-value: 4.202e-09
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = CV ~ ., data = df_model2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2384532  -259314   -26205   188419 15296158 
+## 
+## Coefficients:
+##                                              Estimate Std. Error t value
+## (Intercept)                                 6.696e+08  5.989e+08   1.118
+## Bedrooms                                   -6.407e+04  4.105e+04  -1.561
+## Bathrooms                                   3.496e+05  4.904e+04   7.129
+## `Land area`                                 1.633e+02  2.796e+01   5.841
+## Latitude                                    7.823e+06  4.160e+06   1.880
+## Longitude                                  -2.193e+06  3.396e+06  -0.646
+## `0-19 years`                                1.459e+04  7.093e+03   2.057
+## `20-29 years`                               8.576e+03  7.081e+03   1.211
+## `30-39 years`                               4.330e+03  7.374e+03   0.587
+## `40-49 years`                              -4.349e+03  8.684e+03  -0.501
+##                                            Pr(>|t|)    
+## (Intercept)                                0.263816    
+## Bedrooms                                   0.118969    
+## Bathrooms                                  2.18e-12 ***
+## `Land area`                                7.38e-09 ***
+## Latitude                                   0.060398 .  
+## Longitude                                  0.518621    
+## `0-19 years`                               0.040008 *  
+## `20-29 years`                              0.226173    
+## `30-39 years`                              0.557245    
+## `40-49 years`                              0.616619    
+##  [ reached getOption("max.print") -- omitted 192 rows ]
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 943200 on 846 degrees of freedom
+## Multiple R-squared:  0.4876, Adjusted R-squared:  0.3659 
+## F-statistic: 4.005 on 201 and 846 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = log(CV) ~ ., data = df_model2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.4573 -0.1370  0.0000  0.1406  2.3206 
+## 
+## Coefficients:
+##                                              Estimate Std. Error t value
+## (Intercept)                                 1.174e+02  2.172e+02   0.541
+## Bedrooms                                    3.672e-02  1.489e-02   2.466
+## Bathrooms                                   1.094e-01  1.779e-02   6.148
+## `Land area`                                 8.155e-05  1.014e-05   8.043
+## Latitude                                    3.554e+00  1.509e+00   2.356
+## Longitude                                   1.491e-01  1.232e+00   0.121
+## `0-19 years`                                2.580e-03  2.572e-03   1.003
+## `20-29 years`                               6.687e-04  2.568e-03   0.260
+## `30-39 years`                              -2.498e-03  2.674e-03  -0.934
+## `40-49 years`                              -4.566e-03  3.149e-03  -1.450
+## `50-59 years`                               5.714e-03  2.779e-03   2.056
+## `60+ years`                                 1.340e-03  2.437e-03   0.550
+## SuburbsAlfriston                            1.525e+00  7.094e-01   2.150
+## SuburbsArmy Bay                             1.409e-01  4.616e-01   0.305
+## SuburbsAuckland Central                     8.437e-01  4.404e-01   1.916
+## SuburbsAvondale                             1.341e+00  4.657e-01   2.879
+## SuburbsBeach Haven                          7.168e-01  4.050e-01   1.770
+## SuburbsBeachlands                           1.194e+00  5.946e-01   2.008
+## SuburbsBelmont                              1.032e+00  5.286e-01   1.952
+## SuburbsBirkdale                             8.917e-01  5.174e-01   1.723
+## SuburbsBirkenhead                           6.210e-01  4.395e-01   1.413
+## SuburbsBlockhouse Bay                       1.355e+00  4.876e-01   2.778
+## SuburbsBombay                               2.413e+00  8.961e-01   2.693
+## SuburbsBotany Downs                         1.189e+00  6.393e-01   1.859
+## SuburbsBrowns Bay                           5.876e-01  4.387e-01   1.339
+## SuburbsBuckland                             3.094e+00  9.566e-01   3.234
+## SuburbsBucklands Beach                      1.343e+00  5.218e-01   2.574
+## SuburbsBurswood                             1.233e+00  5.872e-01   2.100
+## SuburbsCampbells Bay                        8.299e-01  5.105e-01   1.626
+## SuburbsChatswood                            1.129e+00  4.634e-01   2.437
+## SuburbsClarks Beach                         1.716e+00  8.180e-01   2.098
+## SuburbsClendon Park                         1.076e+00  6.496e-01   1.657
+## SuburbsClover Park                          1.241e+00  6.239e-01   1.989
+## SuburbsCockle Bay                           1.315e+00  5.705e-01   2.304
+## SuburbsConifer Grove                        1.507e+00  6.882e-01   2.190
+## SuburbsDairy Flat                           9.359e-01  4.474e-01   2.092
+## SuburbsDannemora                            1.344e+00  6.261e-01   2.147
+## SuburbsDrury                                1.432e+00  8.067e-01   1.775
+## SuburbsEast Tamaki                          1.270e+00  5.810e-01   2.186
+## SuburbsEast Tamaki Heights                  1.364e+00  6.166e-01   2.212
+## SuburbsEastern Beach                        1.621e+00  5.648e-01   2.870
+## SuburbsEden Terrace                         1.198e+00  4.997e-01   2.397
+## SuburbsEllerslie                            1.667e+00  4.886e-01   3.412
+## SuburbsEpsom                                1.807e+00  4.705e-01   3.841
+## SuburbsFarm Cove                            1.434e+00  6.142e-01   2.334
+## SuburbsFavona                               9.723e-01  5.665e-01   1.716
+## SuburbsFlat Bush                            1.366e+00  6.023e-01   2.269
+## SuburbsForrest Hill                         9.624e-01  5.101e-01   1.887
+## SuburbsFreemans Bay                         1.586e+00  4.886e-01   3.246
+## SuburbsGlen Eden                            1.108e+00  5.076e-01   2.184
+## SuburbsGlen Innes                           1.250e+00  5.142e-01   2.431
+## SuburbsGlendene                             9.953e-01  4.872e-01   2.043
+## SuburbsGlendowie                            1.634e+00  4.886e-01   3.344
+## SuburbsGlenfield                            6.545e-01  4.024e-01   1.626
+## SuburbsGolflands                            1.374e+00  6.387e-01   2.151
+## SuburbsGoodwood Heights                     1.261e+00  6.354e-01   1.985
+## SuburbsGreat Barrier Island (Aotea Island) -1.996e+00  1.267e+00  -1.575
+## SuburbsGreen Bay                            1.494e+00  5.552e-01   2.691
+## SuburbsGreenlane                            1.763e+00  4.999e-01   3.526
+## SuburbsGrey Lynn                            1.596e+00  4.455e-01   3.582
+## SuburbsGulf Harbour                        -1.950e-02  4.265e-01  -0.046
+## SuburbsHalf Moon Bay                        1.520e+00  5.359e-01   2.835
+## SuburbsHatfields Beach                     -8.059e-02  4.843e-01  -0.166
+## SuburbsHelensville                         -2.892e-01  4.834e-01  -0.598
+## SuburbsHenderson                            1.070e+00  4.820e-01   2.221
+## SuburbsHerne Bay                            1.976e+00  4.459e-01   4.432
+## SuburbsHighland Park                        1.178e+00  5.819e-01   2.025
+## SuburbsHillcrest                            9.626e-01  4.568e-01   2.107
+## SuburbsHillsborough                         1.371e+00  4.947e-01   2.770
+## SuburbsHobsonville                          5.533e-01  4.200e-01   1.317
+## SuburbsHowick                               1.317e+00  5.378e-01   2.449
+## SuburbsHuapai                               2.805e-01  4.804e-01   0.584
+## SuburbsHuia                                 1.269e+00  6.963e-01   1.823
+## SuburbsHunua                                1.509e+00  8.083e-01   1.866
+## SuburbsKaipara Flats                       -9.419e-01  6.832e-01  -1.379
+## SuburbsKaraka                               1.824e+00  7.042e-01   2.591
+## SuburbsKawakawa Bay                         1.381e+00  8.378e-01   1.648
+## SuburbsKelston                              9.234e-01  5.248e-01   1.760
+## SuburbsKingsland                            1.694e+00  5.573e-01   3.039
+## SuburbsKohimarama                           1.360e+00  4.801e-01   2.833
+## SuburbsKumeu                                9.452e-01  4.578e-01   2.065
+## SuburbsLaingholm                            1.168e+00  5.932e-01   1.969
+## SuburbsLeigh                               -1.238e+00  8.117e-01  -1.525
+## SuburbsLong Bay                             6.924e-01  3.940e-01   1.757
+## SuburbsLynfield                             1.262e+00  5.296e-01   2.383
+## SuburbsMangere                              1.093e+00  5.732e-01   1.908
+## SuburbsMangere Bridge                       1.531e+00  5.245e-01   2.918
+## SuburbsMangere East                         1.191e+00  5.630e-01   2.115
+## SuburbsManukau                              9.424e-01  6.419e-01   1.468
+## SuburbsManurewa                             1.302e+00  6.323e-01   2.060
+## SuburbsManurewa East                        1.289e+00  6.831e-01   1.888
+## SuburbsMaraetai                             1.075e+00  6.971e-01   1.543
+## SuburbsMassey                               8.425e-01  4.370e-01   1.928
+## SuburbsMatakatia                           -6.445e-01  5.246e-01  -1.229
+## SuburbsMauku                                2.690e+00  9.012e-01   2.985
+## SuburbsMeadowbank                           1.432e+00  4.922e-01   2.910
+## SuburbsMellons Bay                          1.377e+00  5.503e-01   2.502
+## SuburbsMilford                              1.292e+00  5.134e-01   2.516
+## SuburbsMission Bay                          1.599e+00  4.620e-01   3.461
+## SuburbsMorningside                          1.563e+00  4.802e-01   3.255
+## SuburbsMount Albert                         1.404e+00  4.665e-01   3.010
+## SuburbsMount Eden                           1.507e+00  4.575e-01   3.293
+## SuburbsMount Roskill                        1.426e+00  4.848e-01   2.940
+## SuburbsMount Wellington                     1.425e+00  5.094e-01   2.798
+## SuburbsMurrays Bay                          8.081e-01  5.029e-01   1.607
+## SuburbsNarrow Neck                          6.117e-01  5.356e-01   1.142
+## SuburbsNew Lynn                             1.243e+00  4.854e-01   2.561
+## SuburbsNew Windsor                          1.295e+00  4.795e-01   2.700
+## SuburbsNorthcote                            7.419e-01  5.209e-01   1.424
+## SuburbsOkura                                1.739e+00  5.021e-01   3.464
+## SuburbsOmiha                                5.679e-01  6.404e-01   0.887
+## SuburbsOne Tree Hill                        1.466e+00  5.392e-01   2.719
+## SuburbsOnehunga                             1.406e+00  4.976e-01   2.826
+## SuburbsOneroa                               8.153e-01  5.595e-01   1.457
+## SuburbsOnetangi                             5.695e-01  6.551e-01   0.869
+## SuburbsOpaheke                              1.583e+00  7.542e-01   2.099
+## SuburbsOrakei                               1.705e+00  4.570e-01   3.730
+## SuburbsOrewa                                1.761e-02  4.161e-01   0.042
+## SuburbsOstend                               7.275e-01  6.001e-01   1.212
+## SuburbsOtahuhu                              1.325e+00  5.482e-01   2.417
+## SuburbsOtara                                1.042e+00  5.983e-01   1.743
+## SuburbsOteha                                6.735e-01  4.996e-01   1.348
+## SuburbsPaerata                              2.232e+00  8.606e-01   2.594
+## SuburbsPahurehure                           1.372e+00  7.736e-01   1.773
+## SuburbsPakuranga                            1.534e+00  5.400e-01   2.840
+## SuburbsPakuranga Heights                    1.442e+00  5.479e-01   2.632
+## SuburbsPalm Beach                           2.611e-01  6.603e-01   0.395
+## SuburbsPanmure                              1.152e+00  5.349e-01   2.154
+## SuburbsPapakura                             1.287e+00  7.074e-01   1.819
+## SuburbsPapatoetoe                           1.378e+00  5.729e-01   2.406
+## SuburbsParakai                             -3.733e-01  5.917e-01  -0.631
+## SuburbsParemoremo                           5.163e-01  4.957e-01   1.041
+## SuburbsParnell                              1.841e+00  4.533e-01   4.062
+## SuburbsPatumahoe                            2.145e+00  8.481e-01   2.529
+## SuburbsPenrose                              1.600e+00  5.928e-01   2.699
+## SuburbsPinehill                             6.019e-01  5.019e-01   1.199
+## SuburbsPohuehue                             1.171e+00  6.093e-01   1.921
+## SuburbsPoint Chevalier                      1.474e+00  5.532e-01   2.665
+## SuburbsPoint England                        1.481e+00  5.491e-01   2.697
+## SuburbsPokeno                               1.514e+00  9.949e-01   1.522
+## SuburbsPonsonby                             1.819e+00  4.496e-01   4.046
+## SuburbsPukekohe                             1.849e+00  8.567e-01   2.158
+## SuburbsRakino Island                        6.201e-01  5.402e-01   1.148
+## SuburbsRamarama                             1.755e+00  8.368e-01   2.098
+## SuburbsRandwick Park                        1.322e+00  6.666e-01   1.983
+## SuburbsRanui                                9.398e-01  4.622e-01   2.033
+## SuburbsRed Beach                           -7.236e-02  4.183e-01  -0.173
+## SuburbsRed Hill                             1.250e+00  7.941e-01   1.574
+## SuburbsRedvale                              2.856e-01  4.010e-01   0.712
+## SuburbsRemuera                              1.776e+00  4.588e-01   3.872
+## SuburbsRosehill                             1.629e+00  7.647e-01   2.130
+## SuburbsRothesay Bay                         7.171e-01  4.423e-01   1.621
+## SuburbsRoyal Oak                            2.075e+00  5.361e-01   3.871
+## SuburbsSaint Johns                          1.349e+00  4.872e-01   2.769
+## SuburbsSaint Marys Bay                      1.926e+00  4.444e-01   4.334
+## SuburbsSandringham                          1.223e+00  4.777e-01   2.560
+## SuburbsSchnapper Rock                       9.214e-01  5.061e-01   1.820
+## SuburbsSilverdale                           1.424e-01  4.106e-01   0.347
+## SuburbsSnells Beach                        -8.656e-01  6.248e-01  -1.385
+## SuburbsSomerville                           1.443e+00  6.019e-01   2.398
+## SuburbsSouth Head                          -4.734e-01  6.897e-01  -0.686
+## SuburbsSt Heliers                           1.666e+00  4.695e-01   3.550
+## SuburbsStanmore Bay                         9.196e-02  4.562e-01   0.202
+## SuburbsStonefields                          1.378e+00  5.005e-01   2.753
+## SuburbsSunnyhills                           1.455e+00  5.648e-01   2.575
+## SuburbsSunnyvale                            1.156e+00  4.901e-01   2.359
+## SuburbsSurfdale                             8.024e-01  5.755e-01   1.394
+## SuburbsSwanson                              8.337e-01  5.016e-01   1.662
+## SuburbsTakanini                             1.306e+00  6.736e-01   1.939
+## SuburbsTe Atatu Peninsula                   1.115e+00  4.317e-01   2.584
+## SuburbsTe Atatu South                       9.510e-01  4.563e-01   2.084
+## SuburbsThe Gardens                          1.335e+00  6.490e-01   2.058
+## SuburbsThree Kings                          1.401e+00  4.921e-01   2.848
+## SuburbsTindalls Beach                       3.948e-01  4.669e-01   0.846
+## SuburbsTitirangi                            1.285e+00  5.101e-01   2.520
+## SuburbsTorbay                               8.105e-01  4.169e-01   1.944
+## SuburbsTotara Heights                       1.250e+00  6.355e-01   1.967
+## SuburbsTotara Park                          1.324e+00  6.673e-01   1.983
+## SuburbsTotara Vale                          9.287e-01  5.049e-01   1.839
+## SuburbsTuakau                               2.211e+00  9.475e-01   2.334
+## SuburbsUnsworth Heights                     5.351e-01  5.047e-01   1.060
+## SuburbsWade Heads                           3.986e-01  5.122e-01   0.778
+## SuburbsWai O Taiki Bay                      1.823e+00  5.406e-01   3.373
+## SuburbsWaiheke Island                       1.324e+00  6.573e-01   2.014
+## SuburbsWaimauku                             6.368e-01  5.190e-01   1.227
+## SuburbsWainui                              -3.930e-01  4.655e-01  -0.844
+## SuburbsWaitakere                            1.052e+00  5.139e-01   2.047
+## SuburbsWaitoki                              2.138e-01  5.316e-01   0.402
+## SuburbsWaiuku                               2.035e+00  9.106e-01   2.235
+## SuburbsWarkworth                           -7.637e-01  6.144e-01  -1.243
+## SuburbsWaterview                            1.651e+00  4.773e-01   3.459
+## SuburbsWattle Downs                         1.581e+00  6.732e-01   2.349
+## SuburbsWellsford                           -2.953e+00  8.822e-01  -3.347
+## SuburbsWesley                               1.465e+00  4.879e-01   3.004
+## SuburbsWest Harbour                         8.689e-01  4.292e-01   2.024
+## SuburbsWestmere                             2.148e+00  5.439e-01   3.950
+## SuburbsWeymouth                             1.391e+00  6.580e-01   2.114
+## SuburbsWhenuapai                            8.309e-01  5.330e-01   1.559
+## SuburbsWindsor Park                         8.571e-01  5.057e-01   1.695
+## SuburbsWiri                                 1.336e+00  6.762e-01   1.976
+## `C18 Pop`                                  -5.106e-04  2.374e-03  -0.215
+## NZDep2018                                  -3.089e-02  6.765e-03  -4.566
+##                                            Pr(>|t|)    
+## (Intercept)                                0.588876    
+## Bedrooms                                   0.013847 *  
+## Bathrooms                                  1.21e-09 ***
+## `Land area`                                2.95e-15 ***
+## Latitude                                   0.018712 *  
+## Longitude                                  0.903659    
+## `0-19 years`                               0.316080    
+## `20-29 years`                              0.794620    
+## `30-39 years`                              0.350492    
+## `40-49 years`                              0.147492    
+## `50-59 years`                              0.040044 *  
+## `60+ years`                                0.582541    
+## SuburbsAlfriston                           0.031861 *  
+## SuburbsArmy Bay                            0.760193    
+## SuburbsAuckland Central                    0.055726 .  
+## SuburbsAvondale                            0.004094 ** 
+## SuburbsBeach Haven                         0.077124 .  
+## SuburbsBeachlands                          0.045014 *  
+## SuburbsBelmont                             0.051263 .  
+## SuburbsBirkdale                            0.085208 .  
+## SuburbsBirkenhead                          0.158063    
+## SuburbsBlockhouse Bay                      0.005588 ** 
+## SuburbsBombay                              0.007232 ** 
+## SuburbsBotany Downs                        0.063352 .  
+## SuburbsBrowns Bay                          0.180799    
+## SuburbsBuckland                            0.001268 ** 
+## SuburbsBucklands Beach                     0.010223 *  
+## SuburbsBurswood                            0.035987 *  
+## SuburbsCampbells Bay                       0.104357    
+## SuburbsChatswood                           0.015022 *  
+## SuburbsClarks Beach                        0.036190 *  
+## SuburbsClendon Park                        0.097927 .  
+## SuburbsClover Park                         0.047036 *  
+## SuburbsCockle Bay                          0.021447 *  
+## SuburbsConifer Grove                       0.028785 *  
+## SuburbsDairy Flat                          0.036748 *  
+## SuburbsDannemora                           0.032093 *  
+## SuburbsDrury                               0.076177 .  
+## SuburbsEast Tamaki                         0.029078 *  
+## SuburbsEast Tamaki Heights                 0.027214 *  
+## SuburbsEastern Beach                       0.004209 ** 
+## SuburbsEden Terrace                        0.016732 *  
+## SuburbsEllerslie                           0.000676 ***
+## SuburbsEpsom                               0.000132 ***
+## SuburbsFarm Cove                           0.019809 *  
+## SuburbsFavona                              0.086491 .  
+## SuburbsFlat Bush                           0.023547 *  
+## SuburbsForrest Hill                        0.059527 .  
+## SuburbsFreemans Bay                        0.001217 ** 
+## SuburbsGlen Eden                           0.029262 *  
+## SuburbsGlen Innes                          0.015279 *  
+## SuburbsGlendene                            0.041394 *  
+## SuburbsGlendowie                           0.000861 ***
+## SuburbsGlenfield                           0.104236    
+## SuburbsGolflands                           0.031719 *  
+## SuburbsGoodwood Heights                    0.047471 *  
+## SuburbsGreat Barrier Island (Aotea Island) 0.115519    
+## SuburbsGreen Bay                           0.007254 ** 
+## SuburbsGreenlane                           0.000444 ***
+## SuburbsGrey Lynn                           0.000360 ***
+## SuburbsGulf Harbour                        0.963552    
+## SuburbsHalf Moon Bay                       0.004686 ** 
+## SuburbsHatfields Beach                     0.867887    
+## SuburbsHelensville                         0.549880    
+## SuburbsHenderson                           0.026648 *  
+## SuburbsHerne Bay                           1.06e-05 ***
+## SuburbsHighland Park                       0.043145 *  
+## SuburbsHillcrest                           0.035371 *  
+## SuburbsHillsborough                        0.005725 ** 
+## SuburbsHobsonville                         0.188055    
+## SuburbsHowick                              0.014545 *  
+## SuburbsHuapai                              0.559548    
+## SuburbsHuia                                0.068704 .  
+## SuburbsHunua                               0.062357 .  
+## SuburbsKaipara Flats                       0.168376    
+## SuburbsKaraka                              0.009744 ** 
+## SuburbsKawakawa Bay                        0.099622 .  
+## SuburbsKelston                             0.078843 .  
+## SuburbsKingsland                           0.002449 ** 
+## SuburbsKohimarama                          0.004715 ** 
+## SuburbsKumeu                               0.039267 *  
+## SuburbsLaingholm                           0.049308 *  
+## SuburbsLeigh                               0.127684    
+## SuburbsLong Bay                            0.079234 .  
+## SuburbsLynfield                            0.017415 *  
+## SuburbsMangere                             0.056787 .  
+## SuburbsMangere Bridge                      0.003615 ** 
+## SuburbsMangere East                        0.034687 *  
+## SuburbsManukau                             0.142400    
+## SuburbsManurewa                            0.039726 *  
+## SuburbsManurewa East                       0.059429 .  
+## SuburbsMaraetai                            0.123317    
+## SuburbsMassey                              0.054180 .  
+## SuburbsMatakatia                           0.219571    
+## SuburbsMauku                               0.002915 ** 
+## SuburbsMeadowbank                          0.003710 ** 
+## SuburbsMellons Bay                         0.012547 *  
+## SuburbsMilford                             0.012041 *  
+## SuburbsMission Bay                         0.000565 ***
+## SuburbsMorningside                         0.001178 ** 
+## SuburbsMount Albert                        0.002690 ** 
+## SuburbsMount Eden                          0.001031 ** 
+## SuburbsMount Roskill                       0.003368 ** 
+## SuburbsMount Wellington                    0.005258 ** 
+## SuburbsMurrays Bay                         0.108441    
+## SuburbsNarrow Neck                         0.253739    
+## SuburbsNew Lynn                            0.010613 *  
+## SuburbsNew Windsor                         0.007073 ** 
+## SuburbsNorthcote                           0.154712    
+## SuburbsOkura                               0.000560 ***
+## SuburbsOmiha                               0.375488    
+## SuburbsOne Tree Hill                       0.006674 ** 
+## SuburbsOnehunga                            0.004822 ** 
+## SuburbsOneroa                              0.145451    
+## SuburbsOnetangi                            0.384898    
+## SuburbsOpaheke                             0.036108 *  
+## SuburbsOrakei                              0.000204 ***
+## SuburbsOrewa                               0.966245    
+## SuburbsOstend                              0.225752    
+## SuburbsOtahuhu                             0.015879 *  
+## SuburbsOtara                               0.081782 .  
+## SuburbsOteha                               0.177981    
+## SuburbsPaerata                             0.009654 ** 
+## SuburbsPahurehure                          0.076611 .  
+## SuburbsPakuranga                           0.004616 ** 
+## SuburbsPakuranga Heights                   0.008648 ** 
+## SuburbsPalm Beach                          0.692648    
+## SuburbsPanmure                             0.031521 *  
+## SuburbsPapakura                            0.069284 .  
+## SuburbsPapatoetoe                          0.016358 *  
+## SuburbsParakai                             0.528328    
+## SuburbsParemoremo                          0.297949    
+## SuburbsParnell                             5.31e-05 ***
+## SuburbsPatumahoe                           0.011628 *  
+## SuburbsPenrose                             0.007094 ** 
+## SuburbsPinehill                            0.230769    
+## SuburbsPohuehue                            0.055031 .  
+## SuburbsPoint Chevalier                     0.007848 ** 
+## SuburbsPoint England                       0.007127 ** 
+## SuburbsPokeno                              0.128337    
+## SuburbsPonsonby                            5.69e-05 ***
+## SuburbsPukekohe                            0.031216 *  
+## SuburbsRakino Island                       0.251330    
+## SuburbsRamarama                            0.036214 *  
+## SuburbsRandwick Park                       0.047668 *  
+## SuburbsRanui                               0.042330 *  
+## SuburbsRed Beach                           0.862716    
+## SuburbsRed Hill                            0.115857    
+## SuburbsRedvale                             0.476523    
+## SuburbsRemuera                             0.000116 ***
+## SuburbsRosehill                            0.033453 *  
+## SuburbsRothesay Bay                        0.105303    
+## SuburbsRoyal Oak                           0.000117 ***
+## SuburbsSaint Johns                         0.005748 ** 
+## SuburbsSaint Marys Bay                     1.64e-05 ***
+## SuburbsSandringham                         0.010649 *  
+## SuburbsSchnapper Rock                      0.069038 .  
+## SuburbsSilverdale                          0.728763    
+## SuburbsSnells Beach                        0.166302    
+## SuburbsSomerville                          0.016713 *  
+## SuburbsSouth Head                          0.492643    
+## SuburbsSt Heliers                          0.000407 ***
+## SuburbsStanmore Bay                        0.840315    
+## SuburbsStonefields                         0.006040 ** 
+## SuburbsSunnyhills                          0.010186 *  
+## SuburbsSunnyvale                           0.018570 *  
+## SuburbsSurfdale                            0.163607    
+## SuburbsSwanson                             0.096886 .  
+## SuburbsTakanini                            0.052779 .  
+## SuburbsTe Atatu Peninsula                  0.009935 ** 
+## SuburbsTe Atatu South                      0.037434 *  
+## SuburbsThe Gardens                         0.039910 *  
+## SuburbsThree Kings                         0.004511 ** 
+## SuburbsTindalls Beach                      0.397979    
+## SuburbsTitirangi                           0.011929 *  
+## SuburbsTorbay                              0.052190 .  
+## SuburbsTotara Heights                      0.049503 *  
+## SuburbsTotara Park                         0.047658 *  
+## SuburbsTotara Vale                         0.066200 .  
+## SuburbsTuakau                              0.019852 *  
+## SuburbsUnsworth Heights                    0.289253    
+## SuburbsWade Heads                          0.436623    
+## SuburbsWai O Taiki Bay                     0.000778 ***
+## SuburbsWaiheke Island                      0.044335 *  
+## SuburbsWaimauku                            0.220142    
+## SuburbsWainui                              0.398734    
+## SuburbsWaitakere                           0.040972 *  
+## SuburbsWaitoki                             0.687715    
+## SuburbsWaiuku                              0.025682 *  
+## SuburbsWarkworth                           0.214217    
+## SuburbsWaterview                           0.000570 ***
+## SuburbsWattle Downs                        0.019069 *  
+## SuburbsWellsford                           0.000853 ***
+## SuburbsWesley                              0.002745 ** 
+## SuburbsWest Harbour                        0.043252 *  
+## SuburbsWestmere                            8.48e-05 ***
+## SuburbsWeymouth                            0.034813 *  
+## SuburbsWhenuapai                           0.119412    
+## SuburbsWindsor Park                        0.090489 .  
+## SuburbsWiri                                0.048438 *  
+## `C18 Pop`                                  0.829767    
+## NZDep2018                                  5.70e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.342 on 846 degrees of freedom
+## Multiple R-squared:  0.7061, Adjusted R-squared:  0.6362 
+## F-statistic: 10.11 on 201 and 846 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\includegraphics{submission_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = log(CV) ~ ., data = df_model2[, -6])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.4577 -0.1369  0.0000  0.1401  2.3218 
+## 
+## Coefficients:
+##                                              Estimate Std. Error t value
+## (Intercept)                                 1.429e+02  5.511e+01   2.592
+## Bedrooms                                    3.680e-02  1.487e-02   2.475
+## Bathrooms                                   1.094e-01  1.778e-02   6.152
+## `Land area`                                 8.145e-05  1.010e-05   8.065
+## Latitude                                    3.537e+00  1.501e+00   2.356
+## `0-19 years`                                2.567e-03  2.568e-03   1.000
+## `20-29 years`                               6.520e-04  2.563e-03   0.254
+## `30-39 years`                              -2.484e-03  2.670e-03  -0.930
+## `40-49 years`                              -4.559e-03  3.147e-03  -1.449
+## `50-59 years`                               5.706e-03  2.776e-03   2.055
+##                                            Pr(>|t|)    
+## (Intercept)                                0.009701 ** 
+## Bedrooms                                   0.013508 *  
+## Bathrooms                                  1.18e-09 ***
+## `Land area`                                2.50e-15 ***
+## Latitude                                   0.018700 *  
+## `0-19 years`                               0.317811    
+## `20-29 years`                              0.799223    
+## `30-39 years`                              0.352441    
+## `40-49 years`                              0.147800    
+## `50-59 years`                              0.040155 *  
+##  [ reached getOption("max.print") -- omitted 191 rows ]
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3418 on 847 degrees of freedom
+## Multiple R-squared:  0.7061, Adjusted R-squared:  0.6367 
+## F-statistic: 10.17 on 200 and 847 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = log(CV) ~ ., data = df_model2[, c(-5:-6)])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.4518 -0.1361  0.0000  0.1441  2.3284 
+## 
+## Coefficients:
+##                                              Estimate Std. Error t value
+## (Intercept)                                 1.302e+01  3.647e-01  35.703
+## Bedrooms                                    3.670e-02  1.491e-02   2.462
+## Bathrooms                                   1.101e-01  1.782e-02   6.179
+## `Land area`                                 7.976e-05  1.010e-05   7.896
+## `0-19 years`                                2.770e-03  2.574e-03   1.076
+## `20-29 years`                               6.113e-04  2.570e-03   0.238
+## `30-39 years`                              -2.176e-03  2.674e-03  -0.814
+## `40-49 years`                              -4.389e-03  3.154e-03  -1.391
+## `50-59 years`                               5.792e-03  2.783e-03   2.081
+## `60+ years`                                 1.497e-03  2.441e-03   0.613
+##                                            Pr(>|t|)    
+## (Intercept)                                 < 2e-16 ***
+## Bedrooms                                   0.014017 *  
+## Bathrooms                                  9.98e-10 ***
+## `Land area`                                8.87e-15 ***
+## `0-19 years`                               0.282214    
+## `20-29 years`                              0.811998    
+## `30-39 years`                              0.416129    
+## `40-49 years`                              0.164473    
+## `50-59 years`                              0.037731 *  
+## `60+ years`                                0.540059    
+##  [ reached getOption("max.print") -- omitted 190 rows ]
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3428 on 848 degrees of freedom
+## Multiple R-squared:  0.7041, Adjusted R-squared:  0.6347 
+## F-statistic: 10.14 on 199 and 848 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+Looking at the original model, although we have a high R2 value, and
+thus have a very close-fitting model, we can see from the p-values that
+this is because statistical areas where used as the primary predictor
+for CV. In reality, real-estate companies and potential buyers/sellers
+may not have access to the exact SA1 that the houses they are interested
+in are located in, so this variable is unlikely to be able to be used in
+reality. The variable for address was also dropped (before any models
+were formed) as this would lead to overfitting in the multi-linear
+regression model as the model would simply predict based on the exact
+address and not on the general attributes of a house.
+
+Thus, the second model was fitted (without SA1 and Address) and led to a
+very low R2 value of 0.4876, far too low for prediction. This is most
+likely due to the logged relationship discussed in the previous section
+between the CV and predictor attributes.
+
+Therefore a final model was fitted between log(CV) and other attributes
+leading to a more respectable R2 value of 0.7061 far more suitable for
+prediction. A residuals plot (fitted values versus residuals) shows
+normality of residuals and also suggests a reasonable fit of the model.
+It is worth noting that the correlation between some of the attributes
+(as discussed in the previous section) may require interaction terms to
+be fitted (namely between bedrooms and bathrooms, and the demographic
+groups and population) but this was considered unnecessary with respect
+to the small accuracy gains it may have produced.
+
+Two other models dropping longitude and then latitude and longitude
+respectively were considered for simplicity and only reduced accuracy by
+0.0000 and 0.002 respectively. Thus, if model simplicity is desired,
+they may also be considered a good final model (most of the predictive
+power of those attributes are likely covered in suburbs attribute).
+
+\#Conclusion This analysis shows that the logged CV of a house can be
+predicted with reasonable confidence by the houses bedroom and bathroom
+number, land area, surrounding population demographic and
+suburb/geographic location. This model has a training accuracy of
+between 0.7041 to 0.7061 depending on whether the user values simplicity
+(of understanding) or prediction accuracy the most.
+
+\end{document}

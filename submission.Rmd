@@ -1,0 +1,131 @@
+---
+title: "MSA Phase 1 Submission"
+author: "Josh Looker"
+date: "25 July 2020"
+output:
+  word_document:
+    reference_docx: styles.docx
+---
+# Executive Summary
+Using a dataset provided by NZMSA as well as further data from the 2018 Census (from StatsNZ) and the University of Otago's 2018 Deprivation Index. The NZSMA dataset contains location and building data for each (house) observation as well as demographics for the surrounding location. It was desired to use these attributes to predict the CV of each house.
+
+The analysis below is based on the 1050 house data points recorded, each with a corresponding 17 variables. The response variable is the CV of each house, with the remaining 16 variables being explanatory.
+
+Following initial data analysis, different multi-linear regression models were fitted to the dataset, with the 2 best models identified based on training accuracy and their simplicity.
+
+Note that relevant values for each model can be found in Appendix 1: Model Building, and data manipulation code in Appendix 2: Data Manipulation
+
+# Appendix 2: Data Manipulation
+Loading required packages in R for future analysis
+```{r setup}
+library(s20x)
+library(tidyverse)
+library(reticulate)
+library(reshape2)
+```
+
+Python setup for future dataframe manipulation and API usage
+```{python,eval = FALSE}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import requests
+import json
+pd.set_option('display.max_columns', 500)
+house_prices = pd.read_csv('house_prices.csv')
+house_prices.head()
+with open('key.txt') as fp:
+  key = fp.readline()
+layer_id = 104612
+url = 'https://koordinates.com/services/query/v1/vector.json'
+```
+
+Using lambda and apply function/method to add in 2018 Census data to the dataframe
+```{python, eval=FALSE}
+def get_cinfo(lat,lon):  
+  params={
+    'key':key,
+    'layer' : layer_id,
+    'x' : lon,
+    'y' : lat,
+  }
+  response = requests.get(url,params=params)
+  return response.json()['vectorQuery']['layers']['104612']['features'][0]['properties']['C18_CURPop']
+
+house_prices['C18 Pop'] = house_prices.apply(lambda row: get_cinfo(row['Latitude'], row['Longitude']),axis=1)
+```
+
+Appending deprivation index and census data to a new dataframe in R and writing to a csv
+```{r}
+c18 <- py$house_prices['C18 Pop']
+house_prices <- read_csv(file='house_prices.csv')
+house_prices$`Land area` <- as.numeric(sub("\\D*(\\d+).*", "\\1", house_prices$`Land area`))
+dep_index <- read_csv(file='dep_index.csv')
+house_prices['C18 Pop'] = c18['C18 Pop']
+house_prices = rename(house_prices,SA1 = SA1)
+dep_index = rename(dep_index,SA1 = SA12018_code)
+df = left_join(house_prices,dep_index[c(1,2)],by='SA1')
+df
+write.csv(df,'expanded_dataset.csv')
+```
+
+Final data manipulation for analysis and modeling
+```{r}
+df$SA1 = as.factor(df$SA1)
+df$Suburbs = as.factor(df$Suburbs)
+cols <- colnames(df)
+cols = cols[cols!='CV']
+cols = append(cols,'CV',0)
+df = df[,cols]
+df_model = subset(df, select = -c(Address))
+
+df_model[rowSums(is.na(df_model)) > 0,]
+df_model <- na.omit(df_model)
+```
+
+# Initial Data Analysis
+```{r}
+summary(df_model)
+```
+Looking at the data, we can see that the average number of bedrooms is 3.78, with a large upper tail of upto 17 bedrooms. For bathrooms, the expected number is 2.074 with a smaller upper tail of upto 8. Most land area sizes range between 323-825m2, with a small minimum of 40m2 and what is likely to be a large outlier of 22240m2 as the maximum. Latitude and longitude ranges are small, due to the relatively small size of Auckland. The average number in each population group (for each statistical area) is 47.54, 28.92, 27, 24.13, 22.6 and 29.35 respectively, with the 60+ year group having the largest range with a maximum of 483 (this data point is likely to be a rest home or similar and could be considered an outlier). Most statistical areas will have be between 138 to 207.8 people (according to the 2018 census) in them, though there is an area with 789 people which may indicate an apartment building, retirement village or something similar (and maybe an outlier).
+
+# Correlation and Pattern Analysis
+```{r}
+pairs20x(df_model)
+```
+Looking at the CV histogram, it seems clear that the data should be logged as it has an obvious right skew (also mirrored in the scatter plots between age ranges and CV, and land area and CV). This may also account for the low correlation values between CV and the other variables. It is worth noting that the deprivation index and number of bathrooms are the most highly correlated to the CV value. Between the other variables, the C18 population is highly correlated with each of the age group population data (this is logical as higher population demographics means a higher total population) and the number of bedrooms and bathrooms is also highly correlated (likely because more bedrooms means more residents which would require more bathrooms).
+
+# Linear Regression Model
+Looking at the original model, although we have a high R2 value, and thus have a very close-fitting model, we can see from the p-values that this is because statistical areas where used as the primary predictor for CV. In reality, real-estate companies and potential buyers/sellers may not have access to the exact SA1 that the houses they are interested in are located in, so this variable is unlikely to be able to be used in reality. The variable for address was also dropped (before any models were formed) as this would lead to overfitting in the multi-linear regression model as the model would simply predict based on the exact address and not on the general attributes of a house.
+
+Thus, the second model was fitted (without SA1 and Address) and led to a very low R2 value of 0.4876, far too low for prediction. This is most likely due to the logged relationship discussed in the previous section between the CV and predictor attributes.
+
+Therefore a final model was fitted between log(CV) and other attributes leading to a more respectable R2 value of 0.7061 far more suitable for prediction. A residuals plot (fitted values versus residuals) shows normality of residuals and also suggests a reasonable fit of the model. It is worth noting that the correlation between some of the attributes (as discussed in the previous section) may require interaction terms to be fitted (namely between bedrooms and bathrooms, and the demographic groups and population) but this was considered unnecessary with respect to the small accuracy gains it may have produced.
+
+Two other models dropping longitude and then latitude and longitude respectively were considered for simplicity and only reduced accuracy by 0.0000 and 0.002 respectively. Thus, if model simplicity is desired, they may also be considered a good final model (most of the predictive power of those attributes are likely covered in suburbs attribute).
+
+# Conclusion
+This analysis shows that the logged CV of a house can be predicted with reasonable confidence by the houses bedroom and bathroom number, land area, surrounding population demographic and suburb/geographic location. This model has a training accuracy of between 0.7041 to 0.7061 depending on whether the user values simplicity (of understanding) or prediction accuracy the most.
+
+# Appendix 1: Model Building
+```{r}
+model <- lm(CV~.,data=df_model)
+options(max.print=38)
+summary(model)
+
+df_model2 = subset(df_model, select = -c(SA1))
+model2 <- lm(CV~.,data=df_model2)
+summary(model2)
+
+model3 <- lm(log(CV)~.,data=df_model2)
+options(max.print=76)
+summary(model3)
+plot(model3, which=1)
+
+model4 <- lm(log(CV)~., data=df_model2[,-6])
+options(max.print=50)
+summary(model4)
+
+model5 <- lm(log(CV)~., data=df_model2[,c(-5:-6)])
+summary(model5)
+```
